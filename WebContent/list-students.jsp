@@ -36,7 +36,7 @@
 				</tbody>
 			</table>
 		</div>
-		<a href="add-student-form">Add Student</a>
+		<a href="add-student-form.jsp" class="btn btn-add">ADD STUDENT</a>
 	</div>
 </body>
 </html>

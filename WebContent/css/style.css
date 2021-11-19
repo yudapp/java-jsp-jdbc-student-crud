@@ -45,3 +45,37 @@ tr:nth-child(odd) {background: #BBBBBB}
 	margin-bottom: 15px;
 	background: #cccccc;
 }
+
+
+/* href to button */
+.btn {
+	border: none;
+	padding: 8px 16px;
+	display: inline-block;
+	text-decoration: none;
+	color: white;
+	cursor: pointer;
+	margin-left: 0;
+	max-width: 13rem;
+	text-align: center;
+	 
+}
+
+.btn-add {
+	color: #fff !important;
+	background-color: #15669c !important;
+}
+
+.btn-delete {
+	color: #fff !important;
+	background-color: #ea4e5e !important;
+}
+
+.btn:hover {
+	opacity: 0.8;
+	transition: 0.5s;
+}
+
+.clear {
+	clear: both;
+}

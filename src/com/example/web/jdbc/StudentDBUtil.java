@@ -1,7 +1,9 @@
 package com.example.web.jdbc;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
@@ -53,14 +55,39 @@ public class StudentDBUtil {
 	}
 
 	private void close(Connection myConn, Statement myStmt, ResultSet myRs) {
-		 try {
-			 if(myRs != null) myRs.close();
-			 if(myStmt != null) myStmt.close();
-			 if(myConn != null) myConn.close();
-		  
-			 
-		 } catch (Exception e) {
-			 e.printStackTrace();
-		 }
+		try {
+			if (myRs != null)
+				myRs.close();
+			if (myStmt != null)
+				myStmt.close();
+			if (myConn != null)
+				myConn.close();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void addStudent(Student student) throws Exception{
+		Connection myConn = null;
+		PreparedStatement myStmt = null;
+
+		try {
+			myConn = datasource.getConnection();
+
+			String sql = "insert into student (first_name, last_name, email) values(?,?,?)";
+
+			// set param values
+			myStmt = myConn.prepareStatement(sql);
+			myStmt.setString(1, student.getFirstName());
+			myStmt.setString(2, student.getLastName());
+			myStmt.setString(3, student.getEmail());
+
+			myStmt.execute();
+			
+		} finally {
+			// clean up JDBC objects
+			close(myConn, myStmt, null);
+		}
 	}
 }
