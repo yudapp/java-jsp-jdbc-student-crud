@@ -32,11 +32,11 @@
 							<td>${tempStudent.lastName}</td>
 							<td>${tempStudent.email}</td>
 						</tr>
-
 					</c:forEach>
 				</tbody>
 			</table>
 		</div>
+		<a href="add-student-form">Add Student</a>
 	</div>
 </body>
 </html>
