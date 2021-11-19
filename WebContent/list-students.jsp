@@ -6,6 +6,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Student App</title>
+<link type="text/css" rel="stylesheet" href="css/style.css"/>
 </head>
 <%
 	//get students fron the request object sent by servlet
@@ -33,7 +34,6 @@ List<Student> theStudents = (List<Student>) request.getAttribute("student_list")
 					<%
 						for (Student tempStudent : theStudents) {
 					%>
-
 					<tr>
 						<td><%=tempStudent.getFirstName()%></td>
 						<td><%=tempStudent.getLastName()%></td>
@@ -43,18 +43,10 @@ List<Student> theStudents = (List<Student>) request.getAttribute("student_list")
 					<%
 						}
 					%>
-
-
-
 				</tbody>
 
-
-
 			</table>
-
 		</div>
-
 	</div>
-
 </body>
 </html>
