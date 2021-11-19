@@ -1,4 +1,4 @@
-<%@ page import="java.util.*, com.example.web.jdbc.*"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -6,13 +6,9 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Student App</title>
-<link type="text/css" rel="stylesheet" href="css/style.css"/>
+<link type="text/css" rel="stylesheet" href="css/style.css" />
 </head>
-<%
-	//get students fron the request object sent by servlet
 
-List<Student> theStudents = (List<Student>) request.getAttribute("student_list");
-%>
 <body>
 
 	<div id="wrapper">
@@ -30,21 +26,15 @@ List<Student> theStudents = (List<Student>) request.getAttribute("student_list")
 					<th>Email</th>
 				</thead>
 				<tbody>
+					<c:forEach var="tempStudent" items="${student_list}">
+						<tr>
+							<td>${tempStudent.firstName}</td>
+							<td>${tempStudent.lastName}</td>
+							<td>${tempStudent.email}</td>
+						</tr>
 
-					<%
-						for (Student tempStudent : theStudents) {
-					%>
-					<tr>
-						<td><%=tempStudent.getFirstName()%></td>
-						<td><%=tempStudent.getLastName()%></td>
-						<td><%=tempStudent.getEmail()%></td>
-					</tr>
-
-					<%
-						}
-					%>
+					</c:forEach>
 				</tbody>
-
 			</table>
 		</div>
 	</div>
