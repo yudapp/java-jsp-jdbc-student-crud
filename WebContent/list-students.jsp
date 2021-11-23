@@ -28,19 +28,26 @@
 				</thead>
 				<tbody>
 					<c:forEach var="tempStudent" items="${student_list}">
-					
-					<c:url var="tempLink" value="StudentControllerServlet">
+					<!-- Update link for student -->
+					<c:url var="updateLink" value="StudentControllerServlet">
 						<c:param name="command" value="LOAD" />
 						<c:param name="studentId" value="${tempStudent.id}" />
 					</c:url>
+					
+					<!-- Delete link for student -->
+					<c:url var="deleteLink" value="StudentControllerServlet">
+						<c:param name="command" value="DELETE" />
+						<c:param name="studentId" value="${tempStudent.id}" />
+					</c:url>
+					
 						<tr>
 							<td>${tempStudent.firstName}</td>
 							<td>${tempStudent.lastName}</td>
 							<td>${tempStudent.email}</td>
 							<td>
-							<a href="${tempLink}">Update</a>
+							<a href="${updateLink}">Update</a>
 							| 
-							<a href="${tempLink}">Delete</a>
+							<a href="${deleteLink}">Delete</a>
 							</td>
 						</tr>
 					</c:forEach>
